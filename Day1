@@ -1,0 +1,95 @@
+1.Factorial of a number with /without recursion
+#include<stdio.h>
+void main()
+{
+    int num,fact=1;
+    scanf("%d",&num);
+    for(int i=0;i<num;i++)
+      fact=fact*(num-i) ;
+    printf("%d",fact);
+}
+--------------------------------------------------------------------------------------------------------------
+2.Fibonacci series until limit
+#include<stdio.h>
+void main()
+{
+    int num,temp1=0,temp2=1,temp3;
+    scanf("%d",&num);
+    printf("%d %d ",temp1,temp2);
+    for(int i=2;i<num;i++)
+    {
+        temp3=temp1+temp2;
+        printf("%d ",temp3);
+        temp1=temp2;
+        temp2=temp3;
+    }
+}
+-----------------------------------------------------------------------------------------------------------------
+3.Nth digit in Fibonacci series
+#include<stdio.h>
+void main()
+{
+    int num,temp1=0,temp2=1,temp3,sum=0;
+    scanf("%d",&num);
+    int arr[num];
+    arr[0]=0,arr[1]=1;
+    
+    printf("%d %d ",temp1,temp2);
+    for(int i=2;i<num;i++)
+    {
+        arr[i]=temp1+temp2;
+        printf("%d ",arr[i]);
+        temp1=temp2;
+        temp2=arr[i];
+    }
+    printf("\nNth Digit:%d",arr[num-1]);
+}
+-----------------------------------------------------------------------------------------------------------------
+4.Sum of Fibonacci series
+#include<stdio.h>
+void main()
+{
+    int num,temp1=0,temp2=1,temp3,sum=0;
+    scanf("%d",&num);
+    int arr[num];
+    arr[0]=0,arr[1]=1;
+    
+    printf("%d %d ",temp1,temp2);
+    for(int i=2;i<num;i++)
+    {
+        arr[i]=temp1+temp2;
+        printf("%d ",arr[i]);
+        temp1=temp2;
+        temp2=arr[i];
+    }
+    for(int i=0;i<num;i++)
+    sum=sum+arr[i];
+    printf("\nSum:%d",sum);
+}
+------------------------------------------------------------------------------------------------------------
+5.Armstrong
+#include <stdio.h>
+#include <math.h>
+void main() {
+   int num,count=0,temp,temp1,digit=0,res=0;
+   scanf("%d",&num);
+   temp=num;
+   temp1=num;
+   while(temp>0)
+   {
+     temp=temp/10;
+       count++;
+   }
+   while(temp1>0)
+   {
+       digit =temp1%10;
+       res =res + pow(digit,count);
+       temp1=temp1/10;
+   }
+   if(num==res)
+     printf(It is Amstrong");
+   else
+     printf("It is not Amstrong ");
+}
+-------------------------------------------------------------------------------------------------------
+6.Palindrome
