@@ -111,3 +111,22 @@ void main()
      printf(" Not Palindrome");
 }
 --------------------------------------------------------------------------------------------------------
+7.Prime
+#include <stdio.h>
+int main() {
+    int num;
+    scanf("%d",&num);
+    int set=0;
+    for(int i=1;i<=num;i++)
+    {
+        if(num%i==0)
+        set++;
+    }
+    if(set==2)
+    printf("Its a Prime");
+    else
+    printf("Its not a Prime");
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------
+8.M pattern
