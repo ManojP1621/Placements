@@ -185,4 +185,70 @@ int main() {
     return 0;
 }
 ---------------------------------------------------------------------------------------------------------------------------
+10.Write a program  to delete the value at given position from the array.
+#include <stdio.h>
+
+int main() {
+   int n,pos;
+   scanf("%d",&n);
+   int arr[n];
+   for(int i=0;i<n;i++)
+   scanf("%d",&arr[i]);
+   printf("Enter the position:");
+   scanf("%d",&pos);
+       for(int j=pos-1;j<n-1;j++)
+       {
+            arr[j]=arr[j+1];   
+   }
+   for(int i=0;i<n-1;i++)
+    printf("%d",arr[i]);
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------------------
+11.Write a program  to swap every pair of  adjacent array elements
+#include <stdio.h>
+
+int main() {
+   int n,temp=0;
+   scanf("%d",&n);
+   int arr[n];
+   for(int i=0;i<n;i++)
+   scanf("%d",&arr[i]);
+  for(int i=1;i<n;i+=2)
+  {
+      temp=arr[i];
+      arr[i]=arr[i-1];
+      arr[i-1]=temp;
+  }
+   for(int i=0;i<n;i++)
+    printf("%d ",arr[i]);
+    return 0;
+}
+--------------------------------------------------------------------------------------------------------------------
+12.Write a program  to left rotate for given times of an array elements
+#include <stdio.h>
+
+int main() {
+   int n,temp=0,t;
+   scanf("%d",&n);
+   int arr[n];
+   for(int i=0;i<n;i++)
+   scanf("%d",&arr[i]);
+   printf("Enter the time for left rotate:");
+   scanf("%d",&t);
+  for(int i=0;i<t;i++)
+  {temp=arr[0];
+      for(int j=0;j<n;j++)
+      {
+      arr[j]=arr[j+1];
+  }
+  arr[n-1]=temp;
+  }
+   for(int i=0;i<n;i++)
+    printf("%d ",arr[i]);
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------------
+14.Write a program  to remove the duplicates in an array .
+
 
