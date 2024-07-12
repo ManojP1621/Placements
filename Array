@@ -248,6 +248,40 @@ int main() {
     printf("%d ",arr[i]);
     return 0;
 }
+----------------------------------------------------------------------------------------------------------------
+13.Given an array X with n number of elements, return true if the given array X is sorted else return false. You may consider multiple positions may be shifted in the array X. 
+Example 1: Input: X=[1,2,3,4,5] Output: true 
+Example 2: Input: X=[3,4,5, 1,2,] Output: true
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int size,count=0,min,pos=0,limit;
+    scanf("%d",&size);
+    int arr[size];
+    for(int i=0;i<size;i++)
+    scanf("%d",&arr[i]);
+    min=arr[0];
+    for(int i=0;i<size;i++)
+    {
+        if(min>=arr[i]){
+        min=arr[i];
+        pos=i;}
+    }
+    printf("MIN:%d\nPOS:%d\nSIZE:%d",min,pos,size);
+    limit=size-1;
+    while(limit>0)
+    {
+     if(arr[pos%size]<arr[(pos+1)%size])
+         count++;
+         pos++;
+         limit--;
+    }
+    if(count==size-1)
+    printf("\nTRUE");
+    else
+    printf("\nFALSE");
+    }
 ----------------------------------------------------------------------------------------------------------------------
 14.Write a program  to remove the duplicates in an array .
 #include <stdio.h>
