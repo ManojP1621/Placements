@@ -301,4 +301,101 @@ int main() {
     return 0;
 }
 --------------------------------------------------------------------------------------------------------
+16.odd in ascending and even in decending
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int n,i,temp;
+    scanf("%d",&n);
+    int arr[n];
+    for(i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+     for(i=0;i<n;i++){
+        if(arr[i]%2!=0)
+        {
+            arr[i]=-arr[i];
+        }
+     }
+     for(i=0;i<n;i++)
+     {
+         for(int j=1;j<n;j++)
+         {
+             if(arr[j]>arr[j-1])
+             {
+                 temp=arr[j];
+                 arr[j]=arr[j-1];
+                 arr[j-1]=temp;
+             }
+         }
+     }
+     for(i=0;i<n;i++)
+     printf("%d ",arr[i]);
+     for(i=0;i<n;i++){
+        if(arr[i]%2!=0)
+        {
+            arr[i]=-arr[i];
+        }
+     }
+      printf("\n");
+     for(i=0;i<n;i++)
+     printf("%d ",arr[i]);
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------
+17.0's,1's and 2's arrenge in acending order
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int n,temp;
+    scanf("%d",&n);
+    int arr[n];
+    printf("Enter only 0,1,2 values:");
+    for(int i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i;j<n;j++)
+        {
+            if(arr[j]<arr[j-1]){
+            temp=arr[j];
+            arr[j]=arr[j-1];
+            arr[j-1]=temp;}
+        }
+    }
+
+     for(int i=0;i<n;i++)
+     printf("%d ",arr[i]);
+    return 0;
+}
+----------------------------------------------------------------------------------------------------
+18.Leader means if the ride is less means print the leader
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int n,flag;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+    for(int i=0;i<n;i++)
+    {flag=0;
+        for(int j=i;j<n;j++)
+        {
+            if(arr[i]>=arr[j])
+            flag=1;
+            else{
+                flag=2;
+                break;
+            }
+            }
+        if(flag==1)
+        printf("%d ",arr[i]);
+    }
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------------
 
