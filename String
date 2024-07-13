@@ -21,4 +21,125 @@ class HelloWorld {
     }
 }
 --------------------------------------------------------------------------------------------------------------------------------
-2
+2.Write a program in java to find the length of a string
+import java.util.Scanner;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        System.out.println(str.length());
+        }
+}
+-------------------------------------------------------------------------------------------------------------------------------
+3.Write a program in java to count the total number of alphabets, digits and special characters in a string
+import java.util.Scanner;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        String str1=str.toLowerCase();
+        System.out.println(str1);
+        Count obj = new Count();
+        obj.alpha(str1);
+        }
+}
+class Count{
+    public static void alpha(String s){
+        int alp=0,dig=0,spe=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)>='a' && s.charAt(i)<='z')
+            alp++;
+            else if(s.charAt(i)>='0' && s.charAt(i)<='9')
+            dig++;
+            else
+            spe++;
+        }
+        System.out.print("\nALPHAPETIC:"+alp+"\nDIGITS:"+dig+"\nSPECIAL CHAR:"+spe);
+    }
+    
+}
+--------------------------------------------------------------------------------------------------------------
+4.REVERSE the string
+import java.util.Scanner;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        reverse(str);
+        }
+    public static void reverse(String s){
+         char arr[]=s.toCharArray();
+         int len=s.length();
+         char temp;
+        for(int i=0;i<s.length()/2;i++)
+        {
+            temp=arr[i];
+            arr[i]=arr[len-1];
+            arr[len-1]=temp;
+            len--;
+        }
+        String str = new String(arr);
+        System.out.print(str);
+    }
+    }
+------------------------------------------------------------------------------------------
+5.Write a program in java to convert string to uppercase
+import java.util.Scanner;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        uppercase(str);
+        }
+    public static void uppercase(String s){
+        char[] ch=s.toCharArray();
+         for(int i=0;i<s.length();i++)
+        {
+          if(ch[i]>='a')
+          ch[i]=(char)(ch[i]-32);
+        }
+         System.out.print(ch);
+    }
+    }
+----------------------------------------------------------------------------------------------------
+6.Write a program in java to convert string to lowercase
+import java.util.Scanner;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        lowercase(str);
+        }
+    public static void lowercase(String s){
+        char[] ch=s.toCharArray();
+         for(int i=0;i<s.length();i++)
+        {
+          if(ch[i]>='A')
+          ch[i]=(char)(ch[i]+32);
+        }
+         System.out.print(ch);
+    }
+    }
+-----------------------------------------------------------------------------------------------------
+7.Write a program in java to convert string to toggle case	
+import java.util.Scanner;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        toggle(str);
+        }
+    public static void toggle(String s){
+        char[] ch=s.toCharArray();
+         for(int i=0;i<s.length();i++)
+        {
+          if(ch[i]>='a')
+          ch[i]=(char)(ch[i]-32);
+          else if(ch[i]>'A')
+            ch[i]=(char)(ch[i]+32);
+        }
+         System.out.print(ch);
+    }
+    }
+-----------------------------------------------------------------------------------------------------
