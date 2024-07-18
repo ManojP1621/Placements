@@ -143,3 +143,32 @@ class HelloWorld {
     }
     }
 -----------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+import java.lang.Math;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        int flag=0;
+        int n = sc.nextInt();
+        int limit = (int) (Math.sqrt(n));
+        for(int i=1;i<=limit;i++)
+        { 
+          int g=0,len=0;
+          double k=1;
+          g=n-(i*i);
+          while(len<g)
+          {
+              len= (int) (Math.pow(k,k));
+              if(len==g){
+              System.out.println("Valid - " + i);
+              flag++;
+              }
+              k++;
+          }
+          
+        }
+        if(flag==0)
+        System.out.println("Invalid");
+    }
+}
