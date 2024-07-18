@@ -143,7 +143,26 @@ class HelloWorld {
     }
     }
 -----------------------------------------------------------------------------------------------------
+8.Given a positive number(N), print whether it is valid or not based on Conditions with ‘a’ value.
+G = N - (a)^ 2,where a € ( 1 to sqrt(N) )
+K^k = G , where k is positive number
+Input: 13
+Output: Valid – 3
+If a=1, G = 13 – (1)^2 = 12
+1^1 = 1 != 12
+2^2 = 4 != 12
+3^3 = 27 != 12 so K
+k goes beyond G, we need to terminate.
+If a=2, G = 13 – (2)^2 = 9
+1^1 = 1 != 9
+2^2 = 4 != 9
+3^3 = 27 != 9 so K
+k goes beyond G, we need to terminate.
+If a=3, G = 13 – (3)^2 = 4
+1^1 = 1 != 4
+2^2 = 4 == 4
 
+Answer
 import java.util.Scanner;
 import java.lang.Math;
 public class Main{
@@ -172,3 +191,32 @@ public class Main{
         System.out.println("Invalid");
     }
 }
+--------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        arr[i]=sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]%2!=0)
+            arr[i] = -arr[i];
+        }
+        Arrays.sort(arr);
+         for(int i=0;i<n;i++)
+        {
+            if(arr[i]%2!=0)
+            arr[i] = -arr[i];
+        }
+         for(int i=0;i<n;i++)
+        {
+             System.out.print(arr[i]+" ");
+         }
+    }
+}
+//odd in decending even in ascending.
+---------------------------------------------------------------------------------------------------------------------
