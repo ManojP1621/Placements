@@ -56,19 +56,27 @@ void insert(int num){
     }
 }
 void delet(int num){
-    for(tptr=start;tptr;shadow=tptr,tptr=tptr->next){
-        if(tptr->data==num){
-    tptr=tptr->next;
-    shadow->next=tptr;
+   
+        for(tptr=start;tptr&&tptr->data!=num;shadow=tptr,tptr=tptr->next);
+            if(tptr==NULL)
+               printf("The value is not found");
+            else if(tptr==start)
+            {
+                start=start->next;
+                free(tptr);
             }
-        }
+            else
+            {
+                shadow->next=tptr->next;
+                free(tptr);
+            }
 }
     void display(){
         for(tptr=start;tptr;tptr=tptr->next)
         printf("%d->",tptr->data);
     }
-int main() {
-   int n,del,flag=0;
+void main() {
+   int n,del;
    scanf("%d",&n);
    int arr[n];
    for(int i=0;i<n;i++)
@@ -78,15 +86,8 @@ int main() {
     display();
     printf("\nEnter the delete value:");
     scanf("%d",&del);
-    for(int i=0;i<n;i++)
-    { if(arr[i]==del)
-        delet(del);
-        flag++;
-    }
-    if(flag==0)
-    printf("The Value is not Found.");
+    delet(del);
     display();
-    return 0;
 }
 output
 5
@@ -95,3 +96,58 @@ output
 Enter the delete value:30
 10->20->40->50->
 -------------------------------------------------------------------------------------------------------------------------------
+3.Search element in linked list.
+#include <stdio.h>
+#include<malloc.h>
+typedef struct node{
+    int data;
+    struct node *next;
+}NODE;
+NODE *newnode,*start=NULL,*tptr,*shadow;
+void insert(int num){
+    newnode =(NODE*)malloc(sizeof(NODE));
+    newnode->data=num;
+    newnode->next=NULL;
+    for(tptr=start;tptr;shadow=tptr,tptr=tptr->next);
+    if(start==NULL){
+        newnode->next=start;
+        start=newnode;
+    }
+    else{
+        newnode->next=shadow->next;
+        shadow->next=newnode;
+    }
+}
+void search(int num){
+   
+        for(tptr=start;tptr&&tptr->data!=num;shadow=tptr,tptr=tptr->next);
+            if(tptr==NULL)
+               printf("The Search is not found");
+            else
+            printf("The Search is Found");
+}
+    void display(){
+        for(tptr=start;tptr;tptr=tptr->next)
+        printf("%d->",tptr->data);
+    }
+void main() {
+   int n,sea;
+   scanf("%d",&n);
+   int arr[n];
+   for(int i=0;i<n;i++)
+   scanf("%d",&arr[i]);
+   for(int i=0;i<n;i++)
+   insert(arr[i]);
+    display();
+    printf("\nEnter the Search value:");
+    scanf("%d",&sea);
+    search(sea);
+}
+output
+5
+10 24 5 363 7
+10->24->5->363->7->
+Enter the Search value:6
+The Search is not found
+------------------------------------------------------------------------------------------------------------------------------
+4
