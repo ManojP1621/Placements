@@ -33,3 +33,65 @@ int main() {
     return 0;
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+linked list delete the value
+#include <stdio.h>
+#include<malloc.h>
+typedef struct node{
+    int data;
+    struct node *next;
+}NODE;
+NODE *newnode,*start=NULL,*tptr,*shadow;
+void insert(int num){
+    newnode =(NODE*)malloc(sizeof(NODE));
+    newnode->data=num;
+    newnode->next=NULL;
+    for(tptr=start;tptr;shadow=tptr,tptr=tptr->next);
+    if(start==NULL){
+        newnode->next=start;
+        start=newnode;
+    }
+    else{
+        newnode->next=shadow->next;
+        shadow->next=newnode;
+    }
+}
+void delet(int num){
+    for(tptr=start;tptr;shadow=tptr,tptr=tptr->next){
+        if(tptr->data==num){
+    tptr=tptr->next;
+    shadow->next=tptr;
+            }
+        }
+}
+    void display(){
+        for(tptr=start;tptr;tptr=tptr->next)
+        printf("%d->",tptr->data);
+    }
+int main() {
+   int n,del,flag=0;
+   scanf("%d",&n);
+   int arr[n];
+   for(int i=0;i<n;i++)
+   scanf("%d",&arr[i]);
+   for(int i=0;i<n;i++)
+   insert(arr[i]);
+    display();
+    printf("\nEnter the delete value:");
+    scanf("%d",&del);
+    for(int i=0;i<n;i++)
+    { if(arr[i]==del)
+        delet(del);
+        flag++;
+    }
+    if(flag==0)
+    printf("The Value is not Found.");
+    display();
+    return 0;
+}
+output
+5
+10 20 30 40 50
+10->20->30->40->50->
+Enter the delete value:30
+10->20->40->50->
+-------------------------------------------------------------------------------------------------------------------------------
