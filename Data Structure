@@ -448,3 +448,53 @@ int main()
     return 0;
 }
 --------------------------------------------------------------------------------------------------------------------
+9.Queue in Stack
+#include<stdio.h>
+#define size 5
+int s1[size],s2[size];
+int count=0,top=-1,c1=0;
+void push1(int num){
+ s1[++top]=num;
+    count++;
+}
+int pop1(){
+    printf("%d ",s2[top]);
+     s2[top--];
+     }
+void enqueue(int num){
+  push1(num);
+}
+void dequeue(){
+for(int i=0;i<=count-1;i++)
+{
+    s2[i]=s1[top-i];
+}
+pop1();
+for(int i=0;i<=top;i++)
+{
+    s1[i]=s2[top-i];
+}
+c1++;
+}
+
+void display(){
+    for(int i=0;i<count-c1;i++)
+    printf("%d ",s1[i]);
+}
+int main(){
+    enqueue(5);
+    enqueue(2);
+    enqueue(1);
+    enqueue(8);
+    printf("Dequeue Values:");
+    dequeue();
+    dequeue();
+    enqueue(7);
+    printf("\nEnqueue values:");
+    display();
+}
+output
+Dequeue Values:5 2 
+Enqueue values:1 8 7
+----------------------------------------------------------------------------------------------------------------------------------
+10.
