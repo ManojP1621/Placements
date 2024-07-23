@@ -33,7 +33,7 @@ int main() {
     return 0;
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-linked list delete the value
+2.linked list delete the value
 #include <stdio.h>
 #include<malloc.h>
 typedef struct node{
