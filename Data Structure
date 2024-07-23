@@ -393,13 +393,8 @@ void insert(int num){
           }
 }
 void deleteNode(int num)
-{
-
-            if(start==NULL)
-                return ;
-            else
-            {
-            for(tptr=start;tptr&&tptr->data!=num;tptr=tptr->next);
+{             
+            for(tptr=start;tptr && tptr->data!=num;tptr=tptr->next);
             if(tptr==start)
             {
                 start->next->pre=start->pre;
@@ -418,8 +413,7 @@ void deleteNode(int num)
                 tptr->next->pre =tptr->pre;
                 free(tptr);
             }
-            }
-
+            
 }
 void display()
 {
@@ -439,7 +433,16 @@ int main()
       display();
      printf("\nEnter the delete value:");
      scanf("%d",&del);
-     deleteNode(del);
+     for(int i=0;i<n;i++)
+     {
+         if(arr[i]==del)
+         {
+             deleteNode(del);
+             flag++;
+         }
+     }
+     if(flag==0)
+     printf("The Value is not found");
     display();
  
     return 0;
