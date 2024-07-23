@@ -324,4 +324,124 @@ output
 10 dequed element
 20 30 40 50 60 70 80 90 100 
 --------------------------------------------------------------------------------------------------------------------
+7.Doublly linked list insert
+#include<stdio.h>
+#include<malloc.h>
+typedef struct node
+{
+    int data;
+    struct node *next;
+    struct node *pre;
+}doublelink;
+doublelink *newnode,*start=NULL,*end,*tptr;
+void insert(int num){
+    newnode=(doublelink*)malloc(sizeof(doublelink));
+    newnode->pre=NULL;
+    newnode->data=num;
+     newnode->next=NULL;
+    if(start==NULL){
+        start=end=newnode;
+        }
+    else{
+         newnode->pre=end->next;
+          end->next=newnode;
+          end=newnode;
+          }
+}
+void display()
+{
+     for(tptr=start;tptr;tptr=tptr->next)
+        printf("%d ",tptr->data);
+}
 
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+     for(int i=0;i<n;i++)
+     insert(arr[i]);
+    display();
+ 
+    return 0;
+}
+-------------------------------------------------------------------------------------------------------------------------
+8.Doublly linked list delete,search
+#include<stdio.h>
+#include<malloc.h>
+typedef struct node
+{
+    int data;
+    struct node *next;
+    struct node *pre;
+}doublelink;
+doublelink *newnode,*start=NULL,*end,*tptr;
+void insert(int num){
+    newnode=(doublelink*)malloc(sizeof(doublelink));
+    newnode->pre=NULL;
+    newnode->data=num;
+     newnode->next=NULL;
+    if(start==NULL){
+        start=end=newnode;
+        }
+    else{
+         newnode->pre=end->next;
+          end->next=newnode;
+          end=newnode;
+          }
+}
+void deleteNode(int num)
+{
+
+            if(start==NULL)
+                return ;
+            else
+            {
+            for(tptr=start;tptr&&tptr->data!=num;tptr=tptr->next);
+            if(tptr==start)
+            {
+                start->next->pre=start->pre;
+                start=start->next;
+                free(tptr);
+            }
+            else if(tptr==end)
+            {
+                end->pre->next=end->next;
+                end=end->pre;
+                free(tptr);
+            }
+            else
+            {
+                tptr->pre->next=tptr->next;
+                tptr->next->pre =tptr->pre;
+                free(tptr);
+            }
+            }
+
+}
+void display()
+{
+     for(tptr=start;tptr;tptr=tptr->next)
+        printf("%d ",tptr->data);
+}
+
+int main()
+{
+    int n,del,flag=0;;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+     for(int i=0;i<n;i++)
+     insert(arr[i]);
+      display();
+     printf("\nEnter the delete value:");
+     scanf("%d",&del);
+     deleteNode(del);
+    display();
+ 
+    return 0;
+}
+--------------------------------------------------------------------------------------------------------------------
