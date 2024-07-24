@@ -497,4 +497,118 @@ output
 Dequeue Values:5 2 
 Enqueue values:1 8 7
 ----------------------------------------------------------------------------------------------------------------------------------
-10.
+10.Binary Search Tree
+#include<stdio.h>
+#include<malloc.h>
+#include<stdlib.h>
+#define max(a,b) (a)>(b)?(a):(b)
+#define min(a,b) (a)<(b)?(a):(b)
+typedef struct node{
+    int data;
+    struct node *left,*right;
+}NODE;
+ NODE *newnode,*root;
+NODE* createnode(int num){
+   newnode = (NODE*)malloc(sizeof(NODE));
+    newnode->data = num;
+    newnode->left = NULL;
+    newnode->right = NULL;
+}
+NODE* insert(NODE* node,int num){
+    
+    if(node==NULL)
+    return createnode(num);
+    
+    else if(num<node->data)
+    node->left=insert(node->left,num);
+    
+    else if(num>node->data)
+    node->right=insert(node->right,num);
+    return node;
+    
+}
+void displayPreorder(NODE* node)
+{
+    if(node!=NULL)
+    {
+    printf("%d ",node->data);
+    displayPreorder(node->left);
+    displayPreorder(node->right);
+        
+    }
+}
+void displayPostorder(NODE* node)
+{
+    if(node!=NULL)
+    {
+    displayPostorder(node->left);
+    displayPostorder(node->right);
+    printf("%d ",node->data);
+        
+    }
+}
+void displayInorder(NODE* node)
+{
+    if(node!=NULL)
+    {
+    displayInorder(node->left);
+    printf("%d ",node->data);
+    displayInorder(node->right);
+        
+    }
+}
+int Height(NODE* node)
+{
+    if(node==NULL)
+    return -1;
+    return max(Height(node->left),Height(node->right))+1;
+}
+int MinValue(NODE* node)
+{
+    if(node==NULL)
+    return -1;
+    else{
+        while(node->left!=NULL)
+        node=node->left;
+    }return node->data;
+}
+int MaxValue(NODE* node)
+{
+    if(node==NULL)
+    return -1;
+    else{
+        while(node->right!=NULL)
+        node=node->right;
+    }return node->data;
+}
+int main(){
+    root=insert(root,9);
+    insert(root,7);
+    insert(root,14);
+    insert(root,16);
+    insert(root,11);
+    insert(root,8);
+    insert(root,6);
+    printf("\nPreOrder:\n");
+    displayPreorder(root);
+    printf("\nInOrder:\n");
+    displayInorder(root);
+    printf("\nPostOrder:\n");
+    displayPostorder(root);
+    printf("\nHeight:%d",Height(root));
+    printf("\nMinValue:%d",MinValue(root));
+    printf("\nMaxValue:%d",MaxValue(root));
+    return 0;
+}
+output
+PreOrder:
+9 7 6 8 14 11 16 
+InOrder:
+6 7 8 9 11 14 16 
+PostOrder:
+6 8 7 11 16 14 9 
+Height:2
+MinValue:6
+MaxValue:16
+-------------------------------------------------------------------------------------------------------------------------------
+11.
